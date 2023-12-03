@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+  import {parseExpression} from "cron-parser";
+
+  let cronExpression = '*/2 * * * *'
+  let interval = parseExpression(cronExpression);
+</script>
+
+<h1>Welcome to SvelteKit + cron-parser + luxon</h1>
+<div>
+  next interval for {cronExpression}: {interval.next()}
+</div>
